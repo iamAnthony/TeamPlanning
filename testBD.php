@@ -1,3 +1,6 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -19,11 +22,8 @@
 
 <?php
 
-$mysqli = new mysqli("localhost", "root", "root", "teamplanning");
-if ($mysqli->connect_errno) {
-    echo "Echec lors de la connexion à MySQL : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
-}
-
+include "getMysql.php";
+$mysqli = getMysql();
 $res = $mysqli->query("SELECT * FROM USER");
 
 echo "Ordre du jeu de résultats...\n";
@@ -33,7 +33,6 @@ while ($row = $res->fetch_assoc()) {
 }
 
 ?>
-
 </section>
 
 </body></html>
